@@ -1,8 +1,15 @@
 📌 Project Title
-AI-Powered Online Harassment Detection System
 
-📖 Project Overview
+🔐 Cipher-Trace — AI-Powered Online Harassment Detection Platform                                                                          👤 Author
 
+                                                                                                                                            Jyanesh Naidu
+
+GitHub: https://github.com/alubillijyaneswarrao-creator                                                                                     ⭐ If you find this project useful, give it a star!
+
+LinkedIn: https://linkedin.com/in/jyaneshnaidu
+
+
+DESCRIPTION:
 Online platforms face increasing challenges in detecting harassment, abusive language, and threats in real time. Manual moderation is slow, inconsistent, and not scalable.
 
 This project presents an AI-powered harassment detection system that analyzes user-generated text, evaluates risk using multiple AI models, and provides an administrative decision through a live dashboard.
@@ -10,6 +17,23 @@ This project presents an AI-powered harassment detection system that analyzes us
 The system is designed to minimize false positives while ensuring high safety, similar to real-world moderation systems used by social media platforms.
 
 
+
+📖 Project Overview
+Cipher-Trace is an AI-powered content moderation platform designed to detect online harassment, abusive language, and explicit threats in real time.
+The system combines machine learning, sentiment analysis, and rule-based threat detection with a sentiment-aware decision engine to reduce false positives and enable fair moderation.
+
+The project is fully deployed, cloud-based, and includes an administrative dashboard for real-time monitoring.
+
+🚀 Live Demo
+
+Backend API (FastAPI)
+👉 https://harassment-detection-api.onrender.com
+
+API Documentation (Swagger UI)
+👉 https://harassment-detection-api.onrender.com/docs
+
+Admin Dashboard (Streamlit)
+👉 https://cipher-trace-harassment.streamlit.app/
 🎯 Objectives
 
 Detect abusive and harassing content automatically
@@ -24,21 +48,33 @@ Offer an admin dashboard for visualization and monitoring
 
 monitoring
 
-🧠 Key Features
+✨ Key Features
 
-🔍 Harassment Probability Detection (ML classifier)
+🤖 AI-Based Harassment Detection
+Predicts harassment probability using a supervised ML classifier.
 
-😊 Sentiment Analysis (NLTK VADER)
+😊 Sentiment-Aware Severity Logic
+Uses NLP sentiment analysis to prevent false positives for positive or neutral content.
 
-🚨 Threat Detection Module
+⚠️ Threat Detection Module
+Detects explicit violent threats using rule-based NLP logic.
 
-🧠 Rule-Based Administrative Decision Engine
+🧠 Administrative Decision Engine
+Generates actions such as:
 
-⚡ FastAPI REST API
+ALLOW
 
-📊 Admin Dashboard using Streamlit
+WARN
 
-☁️ Cloud Deployment (Render + Streamlit Cloud)
+TEMP_BLOCK
+
+ESCALATE
+
+📊 Admin Dashboard
+Live visualization of analysis results and moderation decisions.
+
+☁️ Cloud Deployed
+FastAPI backend deployed on Render with real-time inference.
 
 ⚙️ Technology Stack
 
@@ -109,3 +145,11 @@ Multilingual harassment detection
 Image & video moderation
 
 User behavior analytics
+
+
+⚙️ Installation & Local Setup
+git clone https://github.com/alubillijyaneswarrao-creator/Cipher-trace.git
+cd Cipher-trace
+pip install -r requirements.txt
+uvicorn app:app --reload
+Open:http://localhost:8000/docs
