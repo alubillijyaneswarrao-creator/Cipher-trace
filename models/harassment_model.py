@@ -1,11 +1,25 @@
-import pickle
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.linear_model import LogisticRegression
 
-with open("harassment_ai/trained_models/vectorizer.pkl", "rb") as f:
-    vectorizer = pickle.load(f)
+# Minimal training data (demo-safe)
+TRAIN_DATA = [
+    "I hate you",
+    "You are stupid",
+    "Go die",
+    "You are amazing",
+    "Thank you so much",
+    "Have a nice day"
+]
 
-with open("harassment_ai/trained_models/harassment_model.pkl", "rb") as f:
-    model = pickle.load(f)
+LABELS = [1, 1, 1, 0, 0, 0]  # 1 = harassment, 0 = clean
 
-def predict_comment(text):
+# Train at startup
+vectorizer = TfidfVectorizer(stop_words="english")
+X = vectorizer.fit_transform(TRAIN_DATA)
+
+model = LogisticRegression()
+model.fit(X, LABELS)
+
+def predict_comment(text: str) -> float:
     vec = vectorizer.transform([text])
     return model.predict_proba(vec)[0][1]
