@@ -3,12 +3,21 @@ from models.sentiment_model import sentiment_score
 from models.threat_model import threat_detection
 
 def severity_label(harassment_prob, sentiment):
-    if harassment_prob < 0.3 and sentiment > 0.3:
+    # Strong positive sentiment override
+    if sentiment >= 0.4:
         return "LOW"
-    elif harassment_prob < 0.6:
+
+    # Clear non-harassment
+    if harassment_prob < 0.3:
+        return "LOW"
+
+    # Uncertain / borderline
+    if harassment_prob < 0.6:
         return "MEDIUM"
-    else:
-        return "HIGH"
+
+    # Clear harassment
+    return "HIGH"
+
 
 def full_analysis(text: str):
     harassment_prob = predict_comment(text)
@@ -24,3 +33,4 @@ def full_analysis(text: str):
     }
 
     return analysis
+
