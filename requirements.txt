@@ -3,3 +3,6 @@ uvicorn
 scikit-learn
 pandas
 nltk
+streamlit
+requests
+
